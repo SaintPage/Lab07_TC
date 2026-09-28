@@ -14,7 +14,7 @@ def _registrar_gramatica(log, g, titulo):
         log.append(("gram", l))
 
 
-# ---------------------------------------------------------------- a) producciones-ε
+# a) producciones-ε
 def encontrar_anulables(g, log):
     anulables = {A for A, cuerpos in g.items() if () in cuerpos}
     log.append(("txt", f"Ronda 0 (A → ε directo): {_conjunto(anulables)}"))
@@ -74,7 +74,7 @@ def eliminar_epsilon(g, log):
     return nueva
 
 
-# ---------------------------------------------------------------- b) unitarias
+#  b) unitarias
 def _es_unitaria(c):
     return len(c) == 1 and es_no_terminal(c[0])
 
@@ -113,7 +113,7 @@ def eliminar_unitarias(g, log):
     return nueva
 
 
-# ---------------------------------------------------------------- c) inútiles
+#  c) inútiles
 def eliminar_inutiles(g, inicial, log):
     log.append(("tit", "c) Eliminación de símbolos inútiles"))
 
@@ -160,7 +160,7 @@ def eliminar_inutiles(g, inicial, log):
     return g2
 
 
-# ---------------------------------------------------------------- d) CNF
+#  d) CNF
 def a_chomsky(g, log):
     log.append(("tit", "d) Forma Normal de Chomsky"))
 
